@@ -2,3 +2,5 @@ scratch/candidates/
 scratch/*.png
 Thumbs.db
 .DS_Store
+scratch/*.jpg
+scratch/*.b64

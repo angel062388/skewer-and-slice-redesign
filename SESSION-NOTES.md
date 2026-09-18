@@ -143,3 +143,9 @@ pane cannot render, ask the client to preview locally first.
 **Stamps v2 (client asked again, with a reference):** small classic round stamps,
 ~110 px, one under each dish, land-triggered. Rendered look checked in the pane
 before pushing this time.
+
+**Later still:** stamps v3 (bigger, distressed), the client's steam clip as a section
+with poster, and a 10-question FAQ with FAQPage schema. Temporary local receiver
+(scratch/recv.py) used to save browser-captured frames to disk without routing the
+data through the model; stop it after use. The pane cannot screenshot live video; swap
+the poster in as a background to judge the section.

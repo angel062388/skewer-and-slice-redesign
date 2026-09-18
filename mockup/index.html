@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
-<noscript><style>.hero__food{opacity:1}.hero h1 em{color:var(--peach)}.hero h1 .u{text-decoration-color:var(--peach)}.stamp{opacity:1;transform:translateX(-50%) rotate(var(--tilt))}</style></noscript>
+<noscript><style>.hero__food{opacity:1}.hero h1 em{color:var(--peach)}.hero h1 .u{text-decoration-color:var(--peach)}.stamp{opacity:1;transform:translateX(-50%) rotate(var(--tilt))}.steam__video{opacity:1}</style></noscript>
 </head>
 <body>
 
@@ -110,15 +110,20 @@
               <defs>
                 <path id="st1-top" d="M 34,100 A 66,66 0 0 1 166,100"/>
                 <path id="st1-bot" d="M 34,100 A 66,66 0 0 0 166,100"/>
-                <filter id="stamp-grit" x="-4%" y="-4%" width="108%" height="108%">
-                  <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="1" seed="4" result="n"/>
-                  <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+                <filter id="stamp-grit" x="-8%" y="-8%" width="116%" height="116%" color-interpolation-filters="sRGB">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="edge"/>
+                  <feDisplacementMap in="SourceGraphic" in2="edge" scale="2.8" xChannelSelector="R" yChannelSelector="G" result="rough"/>
+                  <feTurbulence type="fractalNoise" baseFrequency="0.05 0.07" numOctaves="3" seed="3" result="blotch"/>
+                  <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="1" seed="11" result="speck"/>
+                  <feComposite in="blotch" in2="speck" operator="arithmetic" k1="0" k2="0.62" k3="0.38" k4="0" result="mix"/>
+                  <feColorMatrix in="mix" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.4 1.4 1.4 0 -1.05" result="wear"/>
+                  <feComposite in="rough" in2="wear" operator="in"/>
                 </filter>
               </defs>
-              <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="7"/>
-              <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="2.5"/>
-              <text font-size="15" letter-spacing="2"><textPath href="#st1-top" startOffset="50%" text-anchor="middle">- BUILT OVER -</textPath></text>
-              <text font-size="15" letter-spacing="2"><textPath href="#st1-bot" startOffset="50%" text-anchor="middle">- NO COMPROMISE -</textPath></text>
+              <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="8.5"/>
+              <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="3"/>
+              <text font-size="16" font-weight="700" letter-spacing="2"><textPath href="#st1-top" startOffset="50%" text-anchor="middle">- BUILT OVER -</textPath></text>
+              <text font-size="16" font-weight="700" letter-spacing="2"><textPath href="#st1-bot" startOffset="50%" text-anchor="middle">- NO COMPROMISE -</textPath></text>
               <text x="100" y="82" text-anchor="middle" font-size="11">&#9733; &#9733; &#9733;</text>
               <text x="100" y="112" text-anchor="middle" font-size="26" font-weight="700" letter-spacing="1">OPEN FLAME</text>
               <text x="100" y="134" text-anchor="middle" font-size="11">&#9733; &#9733; &#9733;</text>
@@ -130,10 +135,10 @@
                 <path id="st2-top" d="M 34,100 A 66,66 0 0 1 166,100"/>
                 <path id="st2-bot" d="M 34,100 A 66,66 0 0 0 166,100"/>
               </defs>
-              <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="7"/>
-              <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="2.5"/>
-              <text font-size="15" letter-spacing="2"><textPath href="#st2-top" startOffset="50%" text-anchor="middle">- SERVED WITH -</textPath></text>
-              <text font-size="15" letter-spacing="2"><textPath href="#st2-bot" startOffset="50%" text-anchor="middle">- FORGED IN FIRE -</textPath></text>
+              <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="8.5"/>
+              <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="3"/>
+              <text font-size="16" font-weight="700" letter-spacing="2"><textPath href="#st2-top" startOffset="50%" text-anchor="middle">- SERVED WITH -</textPath></text>
+              <text font-size="16" font-weight="700" letter-spacing="2"><textPath href="#st2-bot" startOffset="50%" text-anchor="middle">- FORGED IN FIRE -</textPath></text>
               <text x="100" y="82" text-anchor="middle" font-size="11">&#9733; &#9733; &#9733;</text>
               <text x="100" y="112" text-anchor="middle" font-size="34" font-weight="700" letter-spacing="1">HONOR</text>
               <text x="100" y="134" text-anchor="middle" font-size="11">&#9733; &#9733; &#9733;</text>
@@ -322,6 +327,28 @@
     </div>
   </section>
 
+  <!-- ====================== STEAM ======================
+       The client's own ten-second clip of pizza and skewers steaming
+       (0.2 MB), muted and looping. Pauses while off screen.
+       ==================================================== -->
+  <section class="steam" aria-label="Pizza and skewers, fresh off the fire">
+    <video class="steam__video" autoplay muted loop playsinline preload="metadata" poster="assets/steam-poster.jpg" aria-hidden="true">
+      <source src="assets/steam.mp4" type="video/mp4">
+    </video>
+    <div class="steam__scrim"></div>
+    <div class="wrap">
+      <div class="steam__copy reveal">
+        <p class="eyebrow">Fresh Off The Fire</p>
+        <h2>Still Steaming When It Hits Your Table</h2>
+        <p>Kabobs off the flame, pizza out of the oven, made when you order.</p>
+        <div class="hero__actions">
+          <a class="btn btn-order btn-lg" href="order.html">Order Online</a>
+          <a class="btn btn-ghost btn-lg" href="menu.html">See Our Menu</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ====================== TWO KITCHENS ====================== -->
   <section class="section section--flame">
     <div class="embers">
@@ -406,6 +433,76 @@
     </div>
   </section>
 
+  <!-- ====================== FAQS ======================
+       Native details/summary accordion: keyboard friendly, no JS needed.
+       Every answer is a fact already published on skewerandslice.com.
+       ==================================================== -->
+  <section class="section section--alt" id="faqs">
+    <div class="wrap">
+      <div class="section__head center reveal">
+        <p class="eyebrow">Good To Know</p>
+        <h2>Questions, Answered</h2>
+        <p>Hours, pickup, and what comes on the plate. Anything else, call <a href="tel:+17193686548">(719) 368-6548</a>.</p>
+      </div>
+      <div class="faq reveal">
+        <details class="faq__item" open>
+          <summary>What are your hours?</summary>
+          <div class="faq__body"><p>Daily, 11AM to 9PM.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>Where are you?</summary>
+          <div class="faq__body"><p>6970 Mesa Ridge Pkwy, Unit #130, Fountain, CO 80817. <a href="https://maps.google.com/?q=6970+Mesa+Ridge+Pkwy+Unit+130,+Fountain,+CO+80817" target="_blank" rel="noopener">Get directions</a>.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>How do I order for pickup?</summary>
+          <div class="faq__body"><p>Use the Order Online button, or call <a href="tel:+17193686548">(719) 368-6548</a>.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>Can I eat in?</summary>
+          <div class="faq__body"><p>Yes. Stop in for a quick bite or sit down for a full meal, whichever you are in the mood for.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>What comes with a kabob plate?</summary>
+          <div class="faq__body"><p>Every kabob plate is served with seasoned rice, chickpeas, salad, homemade nan bread and our sauces.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>What is in a wrap?</summary>
+          <div class="faq__body"><p>All wraps come in Afghan bread with lettuce, cucumber, tomatoes, onions and feta.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>Is the pizza wood-fired?</summary>
+          <div class="faq__body"><p>Yes. Every pie comes out of the wood oven, including the chicken shawarma pizza.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>Do you have meat-free options?</summary>
+          <div class="faq__body"><p>Yes: the Falafel Plate (K11), the Falafel Wrap, the Veggies Pizza (P3), plus hummus, dolma and nan from the appetizers.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>What is the Sunday special?</summary>
+          <div class="faq__body"><p>S1, Lamb Shank Qabuli Palou: slow-braised lamb shank over Afghan qabuli palau rice. Sundays only.</p></div>
+        </details>
+        <details class="faq__item">
+          <summary>What is for dessert?</summary>
+          <div class="faq__body"><p>Baklava, cheesecake baklava, cream roll, phirni (coconut pudding), nut roll, and gelato in 4, 6 or 8 oz.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What are your hours?","acceptedAnswer":{"@type":"Answer","text":"Daily, 11AM to 9PM."}},
+    {"@type":"Question","name":"Where are you?","acceptedAnswer":{"@type":"Answer","text":"6970 Mesa Ridge Pkwy, Unit #130, Fountain, CO 80817. Get directions."}},
+    {"@type":"Question","name":"How do I order for pickup?","acceptedAnswer":{"@type":"Answer","text":"Use the Order Online button, or call (719) 368-6548."}},
+    {"@type":"Question","name":"Can I eat in?","acceptedAnswer":{"@type":"Answer","text":"Yes. Stop in for a quick bite or sit down for a full meal, whichever you are in the mood for."}},
+    {"@type":"Question","name":"What comes with a kabob plate?","acceptedAnswer":{"@type":"Answer","text":"Every kabob plate is served with seasoned rice, chickpeas, salad, homemade nan bread and our sauces."}},
+    {"@type":"Question","name":"What is in a wrap?","acceptedAnswer":{"@type":"Answer","text":"All wraps come in Afghan bread with lettuce, cucumber, tomatoes, onions and feta."}},
+    {"@type":"Question","name":"Is the pizza wood-fired?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every pie comes out of the wood oven, including the chicken shawarma pizza."}},
+    {"@type":"Question","name":"Do you have meat-free options?","acceptedAnswer":{"@type":"Answer","text":"Yes: the Falafel Plate (K11), the Falafel Wrap, the Veggies Pizza (P3), plus hummus, dolma and nan from the appetizers."}},
+    {"@type":"Question","name":"What is the Sunday special?","acceptedAnswer":{"@type":"Answer","text":"S1, Lamb Shank Qabuli Palou: slow-braised lamb shank over Afghan qabuli palau rice. Sundays only."}},
+    {"@type":"Question","name":"What is for dessert?","acceptedAnswer":{"@type":"Answer","text":"Baklava, cheesecake baklava, cream roll, phirni (coconut pudding), nut roll, and gelato in 4, 6 or 8 oz."}}
+  ]}
+  </script>
+
   <!-- ====================== VISIT ====================== -->
   <section class="section section--alt">
     <div class="wrap">
@@ -485,6 +582,7 @@
           <li><a href="menu.html">Menu</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html#faqs">FAQs</a></li>
         </ul>
       </div>
 

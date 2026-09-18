@@ -415,6 +415,27 @@
   });
 
   /* ------------------------------------------------------------------
+     4e. Steam clip
+         Autoplays muted (the file is 0.2 MB), fades in once it is really
+         playing, pauses while off screen, and stays a still frame under
+         reduced motion.
+     ------------------------------------------------------------------ */
+  document.querySelectorAll('.steam__video').forEach(function (v) {
+    if (reduced) {
+      v.removeAttribute('autoplay'); v.removeAttribute('loop');
+      v.pause(); v.classList.add('is-playing');       // shows the poster / first frame
+      return;
+    }
+    v.addEventListener('playing', function () { v.classList.add('is-playing'); }, { once: true });
+    var play = function () { var p = v.play(); if (p && p.catch) p.catch(function () {}); };
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        es[0].isIntersecting ? play() : v.pause();
+      }, { rootMargin: '200px 0px' }).observe(v);
+    }
+  });
+
+  /* ------------------------------------------------------------------
      5. Scroll reveals
      ------------------------------------------------------------------ */
   var reveals = document.querySelectorAll('.reveal');

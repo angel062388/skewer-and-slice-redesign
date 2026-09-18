@@ -154,3 +154,14 @@ the live page; the flames should fade in within about two seconds.
   Fire" beneath the pizza. Each slams down the moment its own dish lands. The first
   version (large, tilted band box) was removed after review; this one was seen
   rendered before it shipped.
+- **Stamps v3:** larger (~196 px) with a real worn-rubber look: blotchy ink loss and
+  rough edges from an SVG filter, thicker rings, rust ink. Seen rendered before shipping.
+- **Steam section:** the client's own 10-second clip (`assets/steam.mp4`, 0.2 MB,
+  1280x720: a steaming cheese-pull slice, then steaming beef skewers) as a full-width
+  section between the menu browser and "One Kitchen, Two Fires". Headline "Still
+  Steaming When It Hits Your Table". Autoplays muted, fades in once playing, pauses
+  off screen, still frame under reduced motion. Poster `assets/steam-poster.jpg` is a
+  frame from the clip. Note: the clip carries a small generator mark bottom-right.
+- **FAQs:** ten questions in a native accordion after the reviews, with FAQPage
+  structured data. Every answer is a fact already published on the live site; a
+  footer link points to it from every page.
