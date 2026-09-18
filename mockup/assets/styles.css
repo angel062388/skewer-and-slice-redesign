@@ -355,6 +355,30 @@ body.intro-lock{ overflow:hidden; }
   will-change:transform,opacity;
   opacity:0;
 }
+/* right column: the stage, then the two rubber stamps beneath it */
+.hero__right{ display:flex; flex-direction:column; align-items:center; gap:10px; }
+.hero__stamps{ display:flex; justify-content:center; gap:clamp(20px,3.2vw,44px); }
+.stamp{
+  width:clamp(118px,12vw,176px); aspect-ratio:1;
+  color:#E8512F;                          /* ember-red ink */
+  opacity:0;                              /* stamped in by app.js when its dish lands */
+  transform:scale(2.4) rotate(-24deg);
+  filter:drop-shadow(0 10px 18px rgba(0,0,0,.5));
+  --tilt:-8deg;
+}
+.stamp--2{ color:#F0662E; --tilt:6deg; }
+.stamp.is-stamped{ animation:stamp-in .5s cubic-bezier(.2,.9,.25,1.12) forwards; }
+.stamp__svg{ width:100%; height:100%; display:block; filter:url(#stamp-grit); }
+.stamp__svg text{ font-family:var(--font-display); font-weight:600; fill:currentColor; }
+/* the slam: big and faint, then down hard, a tiny rebound, then still */
+@keyframes stamp-in{
+  0%  { opacity:0; transform:scale(2.4) rotate(calc(var(--tilt) - 16deg)); }
+  30% { opacity:0; }
+  45% { opacity:1; transform:scale(.9)  rotate(var(--tilt)); }
+  68% { transform:scale(1.07) rotate(var(--tilt)); }
+  100%{ opacity:1; transform:scale(1)   rotate(var(--tilt)); }
+}
+
 /* Resting spots only. The fly-in itself lives in app.js (section 3), because
    "stop at the centre of the screen" has to be measured at runtime — it is a
    different distance on every screen size. Order: BBQ plate first, then pizza. */
@@ -698,7 +722,8 @@ body.intro-lock{ overflow:hidden; }
   .header__tel{ display:none; }
 
   .hero__grid{ grid-template-columns:1fr; text-align:left; gap:10px; padding:44px 0 30px; }
-  .hero__stage{ min-height:clamp(270px,64vw,400px); order:2; }
+  .hero__right{ order:2; }
+  .hero__stage{ min-height:clamp(270px,64vw,400px); }
   .hero__food--bbq{ width:clamp(165px,42vw,275px); left:-1%; top:0; }
   .hero__food--pizza{ width:clamp(190px,48vw,315px); right:-3%; bottom:6%; }
   .grid--3,.grid--2,.split,.visit{ grid-template-columns:1fr; }

@@ -147,3 +147,8 @@ layer order, mobile overflow, console). The video mount is gated on
 IntersectionObserver, which the automation pane does not deliver, so it was proven by
 mounting the same iframe by hand (loads, covers). **Eyeball check:** scroll to the band on
 the live page; the flames should fade in within about two seconds.
+- **Rubber stamps under the dishes:** "Built Over Open Flame / No Compromise" and
+  "Served With Honor / Forged In Fire" as inline SVG stamps (double ring, ring text,
+  tilted band, grit filter) in ember red. Each one slams down the moment its dish
+  lands: BBQ plate -> stamp one, pizza -> stamp two. Verified: neither appears early,
+  final tilt -8 / +6 degrees, centred beneath the stage, fits at 375px.

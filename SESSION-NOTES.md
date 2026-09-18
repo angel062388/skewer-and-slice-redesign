@@ -134,3 +134,6 @@ the order band (lazy, muted, looping, embers as fallback).
 
 **Still open (unchanged):** prices, two real reviews, About story, ordering provider,
 contact form wiring. Account note: repo lives under `angel062388`.
+
+**Added afterwards:** two SVG rubber stamps beneath the hero dishes, each stamped in
+when its own dish lands (app.js `stampFor`). Copy is the restaurant's own taglines.
