@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skewer &amp; Slice | Afghan Kabob &amp; Wood-Fired Pizza in Fountain, CO</title>
+<meta name="description" content="Open-flame Afghan kabobs and wood-fired pizza in Fountain, Colorado. Order online for pickup, or visit us daily 11AM–9PM on Mesa Ridge Parkway.">
+<link rel="icon" href="assets/logo.webp" type="image/webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ======================================================================
+     INTRO — flame, logo at centre, Order Online + See Our Menu at the
+     bottom. Runs ~5.5s, exits on its own, and shows once per session.
+     ====================================================================== -->
+<div class="intro" id="intro">
+  <div class="embers">
+    <div class="embers__still"></div>
+    <canvas class="embers__canvas" data-density="high" aria-hidden="true"></canvas>
+    <div class="embers__glow"></div>
+  </div>
+
+  <div class="intro__inner">
+    <img class="intro__logo" src="assets/logo.webp" alt="Skewer &amp; Slice — Kabob &amp; Pizza">
+    <p class="intro__tag">Forged in Fire · Served with Honor</p>
+    <div class="intro__actions">
+      <a class="btn btn-order btn-lg" href="order.html">Order Online</a>
+      <a class="btn btn-ghost btn-lg" href="menu.html">See Our Menu</a>
+    </div>
+  </div>
+
+  <button class="intro__skip" type="button">Skip intro</button>
+  <div class="intro__bar" aria-hidden="true"><i></i></div>
+</div>
+
+<!-- ====================== HEADER ====================== -->
+<header class="header">
+  <div class="wrap header__bar">
+    <a class="header__logo" href="index.html">
+      <img src="assets/logo.webp" alt="Skewer &amp; Slice">
+      <span>Skewer &amp; Slice<small>Kabob &amp; Pizza</small></span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="header__actions">
+      <a class="header__tel" href="tel:+17193686548">(719) 368-6548</a>
+      <a class="btn btn-order btn-sm" href="order.html">Order Online</a>
+    </div>
+
+    <button class="burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ====================== HERO ======================
+       Copy on the left, the two cutouts fly in on the right:
+       the BBQ plate arrives first, the pizza follows.
+       ================================================== -->
+  <section class="hero">
+    <div class="embers">
+      <div class="embers__still"></div>
+      <canvas class="embers__canvas" aria-hidden="true"></canvas>
+      <div class="embers__glow"></div>
+      <div class="embers__scrim"></div>
+    </div>
+
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <span class="hero__eyebrow">Fountain, Colorado</span>
+        <h1>Open-Flame Kabob<em>Wood-Fired Pizza</em></h1>
+        <p class="hero__lede">
+          Two fires, one kitchen. Afghan kabobs off the open flame, and pizza
+          pulled straight from the wood oven. Built over open flame, no compromise.
+        </p>
+        <div class="hero__actions">
+          <a class="btn btn-order btn-lg" href="order.html">Order Online</a>
+          <a class="btn btn-ghost btn-lg" href="menu.html">See Our Menu</a>
+        </div>
+        <div class="hero__facts">
+          <span><b>Open Daily</b> 11AM – 9PM</span>
+          <span><b>Pickup</b> on Mesa Ridge Pkwy</span>
+          <span><b>Call</b> (719) 368-6548</span>
+        </div>
+      </div>
+
+      <div class="hero__stage" aria-hidden="true">
+        <img class="hero__food hero__food--bbq"   src="assets/bbq-cutout.webp"   alt="" width="820" height="804" fetchpriority="high">
+        <img class="hero__food hero__food--pizza" src="assets/pizza-cutout.webp" alt="" width="940" height="525"  fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== RIBBON ======================
+       Every line below is the restaurant's own wording, taken from
+       skewerandslice.com — nothing here is invented.
+       ==================================================== -->
+  <div class="ribbon" id="ribbon">
+    <div class="ribbon__viewport">
+      <div class="ribbon__track">
+        <span aria-hidden="true">
+          <b>Built Over Open Flame</b><i>✦</i>
+          <b>Forged In Fire, Made To Order</b><i>✦</i>
+          <b>Wood-Fired Pizza</b><i>✦</i>
+          <b>Homemade Nan Bread</b><i>✦</i>
+          <b>Served With Honor</b><i>✦</i>
+          <b>Lamb Shank — Sundays Only</b><i>✦</i>
+          <b>Open Daily 11AM – 9PM</b><i>✦</i>
+        </span>
+        <span aria-hidden="true">
+          <b>Built Over Open Flame</b><i>✦</i>
+          <b>Forged In Fire, Made To Order</b><i>✦</i>
+          <b>Wood-Fired Pizza</b><i>✦</i>
+          <b>Homemade Nan Bread</b><i>✦</i>
+          <b>Served With Honor</b><i>✦</i>
+          <b>Lamb Shank — Sundays Only</b><i>✦</i>
+          <b>Open Daily 11AM – 9PM</b><i>✦</i>
+        </span>
+      </div>
+    </div>
+    <button class="ribbon__pause" type="button" data-ribbon-toggle aria-pressed="false">
+      <span aria-hidden="true">❙❙</span> <span data-ribbon-label>Pause motion</span>
+    </button>
+  </div>
+
+  <!-- ====================== MENU BROWSER ======================
+       The live site's "Browse our menu" bar, rebuilt: rounded chips
+       instead of square boxes, and a working filter instead of anchors.
+       Every card carries the same Order Online button.
+       ========================================================== -->
+  <section class="section" id="menu-browser">
+    <div class="wrap">
+      <div class="section__head center reveal">
+        <p class="eyebrow">What People Come Back For</p>
+        <h2>Off The Flame</h2>
+        <p>Every kabob plate comes with seasoned rice, chickpeas, salad, homemade nan and our sauces.</p>
+      </div>
+
+      <div class="browse reveal" role="group" aria-label="Browse our menu">
+        <span class="browse__label">Browse our menu:</span>
+        <button class="chip" type="button" data-filter="All" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-filter="Appetizers" aria-pressed="false">APPETIZERS</button>
+          <button class="chip" type="button" data-filter="Kabobs" aria-pressed="false">KABOBS</button>
+          <button class="chip" type="button" data-filter="Wraps" aria-pressed="false">WRAPS</button>
+          <button class="chip" type="button" data-filter="Specials" aria-pressed="false">SPECIALS</button>
+          <button class="chip" type="button" data-filter="Pizza" aria-pressed="false">PIZZA</button>
+          <button class="chip" type="button" data-filter="Dessert" aria-pressed="false">DESSERT</button>
+          <button class="chip" type="button" data-filter="Sides" aria-pressed="false">SIDES</button>
+          <button class="chip" type="button" data-filter="Ice Cream" aria-pressed="false">ICE CREAM</button>
+          <button class="chip" type="button" data-filter="Drinks" aria-pressed="false">DRINKS</button>
+      </div>
+
+      <div class="grid grid--3" id="dishGrid">
+        <article class="card dish reveal" data-cat="Appetizers">
+          <div class="card__media"><img src="assets/app-garlic-whip.jpg" alt="Garlic whip, hummus and Afghan nan" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">A1 · Appetizers</p>
+            <h3>Garlic Whip, Hummus &amp; Nan</h3>
+            <p>Whipped garlic, hummus and warm Afghan nan.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Appetizers">
+          <div class="card__media"><img src="assets/app-dolma.jpg" alt="Dolma and hummus platter" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">A2 · Appetizers</p>
+            <h3>Dolma &amp; Hummus</h3>
+            <p>Stuffed grape leaves with hummus.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Appetizers">
+          <div class="card__media"><img src="assets/app-falafel.jpg" alt="Falafel and hummus platter" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">A3 · Appetizers</p>
+            <h3>Falafel &amp; Hummus</h3>
+            <p>Crisp falafel with hummus and nan.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Appetizers">
+          <div class="card__media"><img src="assets/hummus-nan.jpg" alt="Hummus and Afghan nan" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">A4 · Appetizers</p>
+            <h3>Hummus &amp; Nan</h3>
+            <p>House hummus with homemade nan bread.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Kabobs">
+          <div class="card__media"><img src="assets/k1-chicken-kabob.jpg" alt="K1 chicken kabob over seasoned rice" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">K1 · Kabobs</p>
+            <h3>Chicken Kabob</h3>
+            <p>Marinated chicken off the flame, over seasoned rice.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Kabobs">
+          <div class="card__media"><img src="assets/k6-chopan-kabob.jpg" alt="K6 chopan lamb chop kabob over seasoned rice" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">K6 · Kabobs</p>
+            <h3>Chopan Kabob</h3>
+            <p>Lamb chops, charred on the bone.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Kabobs">
+          <div class="card__media"><img src="assets/k10-gyro-plate.jpg" alt="K10 gyro plate over seasoned rice" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">K10 · Kabobs</p>
+            <h3>Gyro Plate</h3>
+            <p>Sliced gyro over seasoned rice with salad and nan.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Kabobs">
+          <div class="card__media"><img src="assets/k11-falafel.jpg" alt="K11 falafel plate over seasoned rice" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">K11 · Kabobs</p>
+            <h3>Falafel Plate</h3>
+            <p>Falafel over seasoned rice, fully vegetarian.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Kabobs">
+          <div class="card__media"><img src="assets/k12-shawarma.jpg" alt="K12 chicken shawarma plate with garlic sauce" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">K12 · Kabobs</p>
+            <h3>Chicken Shawarma</h3>
+            <p>Shawarma chicken with garlic sauce.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Wraps">
+          <div class="card__media"><img src="assets/wrap-gyro.jpg" alt="Gyro wrap in Afghan bread" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">Wraps</p>
+            <h3>Gyro Wrap</h3>
+            <p>Gyro in Afghan bread with lettuce, cucumber, tomato, onion and feta.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Specials">
+          <div class="card__media"><img src="assets/lamb-shank.jpg" alt="S1 lamb shank qabuli palou, Sunday only" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">S1 · Specials</p>
+            <h3>Lamb Shank Qabuli Palou</h3>
+            <p>Slow-braised shank over qabuli palau. Sundays only.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Specials">
+          <div class="card__media"><img src="assets/family-platter.jpg" alt="S3 family platter of mixed kabobs, gyro and rice" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">S3 · Specials</p>
+            <h3>Family Platter</h3>
+            <p>Mixed kabobs, gyro and rice, built to share.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Specials">
+          <div class="card__media"><img src="assets/wings.jpg" alt="S5 baked wings with ranch and hot sauce" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">S5 · Specials</p>
+            <h3>Baked Wings</h3>
+            <p>Oven-baked seasoned wings with ranch and hot sauce.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Pizza">
+          <div class="card__media"><img src="assets/pizza-pepperoni.jpg" alt="P2 wood fired beef pepperoni pizza" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">P2 · Pizza</p>
+            <h3>Beef Pepperoni Pizza</h3>
+            <p>Wood-fired, blistered crust, edge to edge pepperoni.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Pizza">
+          <div class="card__media"><img src="assets/pizza-veggie.jpg" alt="P3 wood fired veggie pizza with fresh basil" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">P3 · Pizza</p>
+            <h3>Veggies Pizza</h3>
+            <p>Wood-fired veggie pie with fresh basil.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Pizza">
+          <div class="card__media"><img src="assets/pizza-shawarma.jpg" alt="P4 chicken shawarma pizza with garlic sauce and basil" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">P4 · Pizza</p>
+            <h3>Chicken Shawarma Pizza</h3>
+            <p>Shawarma chicken, garlic sauce and basil.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Dessert">
+          <div class="card__media"><img src="assets/baklava.jpg" alt="Pistachio baklava" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">Dessert</p>
+            <h3>Baklava</h3>
+            <p>Pistachio baklava, layered and syrup-soaked.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Dessert">
+          <div class="card__media"><img src="assets/dessert-nut-rolls.jpg" alt="Chocolate almond nut rolls" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">Dessert</p>
+            <h3>Nut Roll</h3>
+            <p>Chocolate almond nut rolls.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Dessert">
+          <div class="card__media"><img src="assets/dessert-cream-roll.jpg" alt="Pistachio cream rolls" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">Dessert</p>
+            <h3>Cream Roll</h3>
+            <p>Pistachio cream rolls.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Sides">
+          <div class="card__media"><img src="assets/side-fries.jpg" alt="Side of fries" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">Sides</p>
+            <h3>Fries</h3>
+            <p>A side of fries.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Sides">
+          <div class="card__media"><img src="assets/side-salad.jpg" alt="Side salad" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">Sides</p>
+            <h3>Salad</h3>
+            <p>House side salad.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Sides">
+          <div class="card__media"><img src="assets/side-hummus.jpg" alt="Side of hummus" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">Sides</p>
+            <h3>Hummus</h3>
+            <p>A side of house hummus.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Ice Cream">
+          <div class="card__media"><img src="assets/icecream-bowl.jpg" alt="Bowl of house made gelato" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">Ice Cream</p>
+            <h3>Gelato</h3>
+            <p>House gelato, served 4oz, 6oz or 8oz.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+        <article class="card dish reveal" data-cat="Drinks">
+          <div class="card__media"><img src="assets/drink-turkish-coffee.jpg" alt="Turkish coffee" loading="lazy"></div>
+          <div class="card__body">
+            <p class="card__code">Drinks</p>
+            <h3>Turkish Coffee</h3>
+            <p>Traditional Turkish coffee.</p>
+            <div class="card__foot"><a class="btn btn-order btn-sm" href="order.html">Order Online</a></div>
+          </div>
+        </article>
+      </div>
+
+      <p class="browse__empty" id="dishEmpty" hidden>Nothing in that category yet.</p>
+
+      <div style="text-align:center;margin-top:44px">
+        <a class="btn btn-ghost btn-lg" href="menu.html">See The Full Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== TWO KITCHENS ====================== -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section__head center reveal">
+        <p class="eyebrow">One Kitchen, Two Fires</p>
+        <h2>Skewer &amp; Slice</h2>
+      </div>
+
+      <div class="split">
+        <a class="split__panel reveal" href="menu.html#kabobs">
+          <img src="assets/family-platter.jpg" alt="Family platter of mixed kabobs, gyro and rice" loading="lazy">
+          <div class="split__copy">
+            <h3>The Skewer</h3>
+            <p>Fourteen kabob plates off the open flame, from chicken to NY strip to lamb chop — plus gyro, shawarma and falafel.</p>
+          </div>
+        </a>
+
+        <a class="split__panel reveal" href="menu.html#pizza">
+          <img src="assets/pizza-shawarma.jpg" alt="Chicken shawarma pizza with garlic sauce and basil" loading="lazy">
+          <div class="split__copy">
+            <h3>The Slice</h3>
+            <p>Wood-fired pies, including the one you will not find anywhere else in Fountain — chicken shawarma with garlic sauce.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== REVIEWS (no cursive) ====================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head center reveal">
+        <p class="eyebrow">Testimonials</p>
+        <h2>Customer Reviews</h2>
+        <p>Our customers love our food. Read our reviews to learn why.</p>
+      </div>
+
+      <div class="grid grid--3">
+        <!-- Verbatim from the live site. Real, attributed. -->
+        <blockquote class="review reveal">
+          <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review__text">
+            “Some of the best food I’ve had in a long time. The falafel is so crunchy and
+            flavorful; everything was flavorful and delicious. I thought our meal was
+            reasonably priced and it was a good portion of food for two people.
+            Definitely coming back to this spot.”
+          </p>
+          <p class="review__who">Melanie V. · Google Local Guide</p>
+        </blockquote>
+
+        <!-- PLACEHOLDER — do not publish until replaced with a real Google review. -->
+        <blockquote class="review reveal" data-placeholder="true">
+          <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review__text">
+            [PLACEHOLDER — paste a real Google review here before this page goes live.
+            Nothing in this slot has been written for you, on purpose.]
+          </p>
+          <p class="review__who">Reviewer name · Google</p>
+        </blockquote>
+
+        <!-- PLACEHOLDER — do not publish until replaced with a real Google review. -->
+        <blockquote class="review reveal" data-placeholder="true">
+          <div class="review__stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="review__text">
+            [PLACEHOLDER — paste a real Google review here before this page goes live.
+            Nothing in this slot has been written for you, on purpose.]
+          </p>
+          <p class="review__who">Reviewer name · Google</p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== VISIT ====================== -->
+  <section class="section section--alt">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <p class="eyebrow">Find Us</p>
+        <h2>Visit The Grill</h2>
+      </div>
+
+      <div class="visit">
+        <div class="info-card reveal">
+          <dl>
+            <div class="info-row"><dt>Address</dt><dd>6970 Mesa Ridge Pkwy, Unit #130<br>Fountain, CO 80817</dd></div>
+            <div class="info-row"><dt>Hours</dt><dd>Daily · 11:00AM – 9:00PM</dd></div>
+            <div class="info-row"><dt>Phone</dt><dd><a href="tel:+17193686548">(719) 368-6548</a></dd></div>
+            <div class="info-row"><dt>Email</dt><dd><a href="mailto:info@skewerandslice.com">info@skewerandslice.com</a></dd></div>
+          </dl>
+          <div class="hero__actions" style="margin-top:26px">
+            <a class="btn btn-order" href="order.html">Order Online</a>
+            <a class="btn btn-ghost" href="https://maps.google.com/?q=6970+Mesa+Ridge+Pkwy+Unit+130,+Fountain,+CO+80817" target="_blank" rel="noopener">Get Directions</a>
+          </div>
+        </div>
+
+        <div class="map reveal">
+          <iframe
+            title="Map to Skewer &amp; Slice, 6970 Mesa Ridge Parkway, Fountain, Colorado"
+            src="https://maps.google.com/maps?q=6970%20Mesa%20Ridge%20Pkwy%20Unit%20130%2C%20Fountain%2C%20CO%2080817&t=m&z=15&output=embed&iwloc=near"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== ORDER BAND ====================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="band reveal">
+        <div class="embers">
+          <div class="embers__still"></div>
+          <canvas class="embers__canvas" aria-hidden="true"></canvas>
+          <div class="embers__glow"></div>
+          <div class="embers__scrim embers__scrim--even"></div>
+        </div>
+        <div class="band__inner">
+          <p class="eyebrow">Built Over Open Flame. No Compromise.</p>
+          <h2>Forged In Fire. Made To Order.</h2>
+          <p>
+            Whether you’re stopping in for a quick bite or sitting down for a full meal,
+            every dish is crafted with precision, heat and purpose.
+          </p>
+          <div class="band__actions">
+            <a class="btn btn-order btn-lg" href="order.html">Order Online</a>
+            <a class="btn btn-ghost btn-lg" href="menu.html">See Our Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ====================== FOOTER ====================== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__logo"><img src="assets/logo.webp" alt="Skewer &amp; Slice"></div>
+        <p style="color:var(--muted);max-width:290px">
+          Afghan kabob and wood-fired pizza, served in Fountain, Colorado.
+        </p>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="menu.html#kabobs">Kabobs</a></li>
+          <li><a href="menu.html#pizza">Pizza</a></li>
+          <li><a href="menu.html#wraps">Wraps</a></li>
+          <li><a href="menu.html#desserts">Desserts</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>6970 Mesa Ridge Pkwy, Unit #130<br>Fountain, CO 80817</li>
+          <li><a href="tel:+17193686548">(719) 368-6548</a></li>
+          <li>Daily · 11AM – 9PM</li>
+        </ul>
+        <a class="btn btn-order btn-sm" style="margin-top:16px" href="order.html">Order Online</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> Skewer &amp; Slice. All rights reserved.</span>
+      <span>6970 Mesa Ridge Pkwy, Unit #130, Fountain, CO 80817</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Sticky ordering — always reachable, never a popup -->
+<div class="orderbar" id="orderbar">
+  <div class="orderbar__txt"><b>Open Daily 11AM – 9PM</b>Pickup on Mesa Ridge Pkwy</div>
+  <a class="btn btn-order btn-sm" href="order.html">Order Online</a>
+  <a class="btn btn-ghost btn-sm" href="https://maps.google.com/?q=6970+Mesa+Ridge+Pkwy+Unit+130,+Fountain,+CO+80817" target="_blank" rel="noopener">Directions</a>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
