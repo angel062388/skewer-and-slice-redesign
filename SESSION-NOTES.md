@@ -7,8 +7,15 @@
 
 ## Where things stand
 
-Redesign mockup is **built and verified locally**. Five pages, committed to a
-local git repo (`95003ee`). **Not yet pushed — no GitHub remote exists.**
+Redesign mockup is **built, pushed, and live on GitHub Pages** (verified HTTP 200
+on all five pages, 2026-09-18).
+
+| | |
+|---|---|
+| **Repo** | https://github.com/angel062388/skewer-and-slice-redesign |
+| **Live preview** | https://angel062388.github.io/skewer-and-slice-redesign/ (root redirects to `mockup/`) |
+| **Account** | `angel062388` — the browser's default account at login time, **not** `betchy1511-arch` where the Magister Digital redesign lives. Fine functionally; move it later if the client wants one home for all repos. |
+| **Pages source** | `main` branch, `/` root — same setup as the previous redesign |
 
 ---
 
@@ -74,12 +81,9 @@ media library was enumerated. Useful for future asset pulls.
 
 ## Next steps
 
-1. **Create the GitHub repo** — `gh` is installed (v2.98.0) but not logged in:
-   ```
-   gh auth login
-   gh repo create skewer-and-slice-redesign --public --source=. --remote=origin --push
-   ```
-   Prior Magister repos live under `betchy1511-arch` (origin) and `angel062388`.
+1. ~~Create the GitHub repo~~ **Done.** `gh` is now logged in as `angel062388`
+   (keyring). To publish future edits: `git add -A && git commit && git push` —
+   Pages rebuilds in about 40s.
 2. Get prices, two real Google reviews, and the About story from the client.
 3. Choose an online ordering provider, embed it in `order.html`, then run the
    catalog/cart/checkout tests and set up completed-order (not click) tracking.

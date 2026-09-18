@@ -10,6 +10,10 @@ from any static host and handed to a developer without a build step.
 
 ## Preview
 
+**Live:** <https://angel062388.github.io/skewer-and-slice-redesign/>
+
+Locally:
+
 ```bash
 cd mockup && python -m http.server 8787
 ```
