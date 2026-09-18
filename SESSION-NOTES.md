@@ -135,5 +135,7 @@ the order band (lazy, muted, looping, embers as fallback).
 **Still open (unchanged):** prices, two real reviews, About story, ordering provider,
 contact form wiring. Account note: repo lives under `angel062388`.
 
-**Added afterwards:** two SVG rubber stamps beneath the hero dishes, each stamped in
-when its own dish lands (app.js `stampFor`). Copy is the restaurant's own taglines.
+**Stamps tried and removed (client call, 2026-09-18):** two red rubber stamps under the
+hero dishes were pushed without a rendered look (the pane could not draw) and did not
+suit the hero. Reverted in full. Lesson: no new visual element goes live unseen; if the
+pane cannot render, ask the client to preview locally first.

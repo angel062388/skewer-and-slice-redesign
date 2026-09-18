@@ -185,13 +185,6 @@
     if (h) h.classList.add('is-on');
   };
 
-  // each dish gets a rubber stamp beneath it the moment it lands
-  var stamps = [].slice.call(document.querySelectorAll('.hero__stamps .stamp'));
-  var stampFor = function (el) {
-    var s = stamps[foods.indexOf(el)];
-    if (s) s.classList.add('is-stamped');
-  };
-
   if (foods.length && 'animate' in Element.prototype && !reduced) {
     var DURATION = 2100;      // one dish, ms
     var GAP = 150;            // breath between dishes
@@ -226,7 +219,6 @@
         try { anim.commitStyles(); anim.cancel(); }
         catch (e) { el.style.opacity = '1'; el.style.transform = 'none'; }
         el.classList.add('is-settled');                  // hand over to the CSS drift
-        stampFor(el);
       };
       // same promise the chaining uses, so "settled" and "next" always agree
       if (anim.finished && anim.finished.then) anim.finished.then(settle, function () {});
@@ -275,7 +267,6 @@
     // no Web Animations support (or reduced motion): show the dishes in place
     lightHero();
     foods.forEach(function (el) { el.style.opacity = '1'; el.classList.add('is-settled'); });
-    stamps.forEach(function (s) { s.classList.add('is-stamped'); });
   }
 
   /* ------------------------------------------------------------------
