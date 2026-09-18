@@ -147,3 +147,10 @@ layer order, mobile overflow, console). The video mount is gated on
 IntersectionObserver, which the automation pane does not deliver, so it was proven by
 mounting the same iframe by hand (loads, covers). **Eyeball check:** scroll to the band on
 the live page; the flames should fade in within about two seconds.
+- **Small stamps under the dishes (v2):** two classic round stamps, about 110 px wide,
+  in one warm ink colour: thick outer ring, thin inner ring, curved text top and bottom,
+  bold word with stars in the middle (per the client's reference). "Built Over / Open
+  Flame / No Compromise" beneath the BBQ plate and "Served With / Honor / Forged In
+  Fire" beneath the pizza. Each slams down the moment its own dish lands. The first
+  version (large, tilted band box) was removed after review; this one was seen
+  rendered before it shipped.

@@ -355,6 +355,34 @@ body.intro-lock{ overflow:hidden; }
   will-change:transform,opacity;
   opacity:0;
 }
+/* Right column: the stage, then a slim strip holding two small stamps,
+   one beneath each dish. Classic round stamp: thick outer ring, thin inner
+   ring, curved text top and bottom, bold word with stars in the middle. */
+.hero__right{ display:flex; flex-direction:column; }
+.hero__stamps{ position:relative; height:clamp(92px,9vw,124px); }
+.stamp{
+  position:absolute; top:6px;
+  width:clamp(82px,7.6vw,112px); aspect-ratio:1;
+  color:#EA8A3F;                                  /* one warm ink colour */
+  opacity:0;                                      /* stamped in by app.js when its dish lands */
+  transform:translateX(-50%) scale(1.9) rotate(-18deg);
+  filter:drop-shadow(0 6px 14px rgba(0,0,0,.45));
+  --tilt:-7deg;
+}
+.stamp--1{ left:29%; }                             /* under the BBQ plate */
+.stamp--2{ left:70%; --tilt:5deg; }                /* under the pizza */
+.stamp.is-stamped{ animation:stamp-in .42s cubic-bezier(.2,.9,.25,1.1) forwards; }
+.stamp__svg{ width:100%; height:100%; display:block; filter:url(#stamp-grit); opacity:.94; }
+.stamp__svg text{ font-family:var(--font-display); font-weight:600; fill:currentColor; }
+/* the slam: big and faint, down hard, a small rebound, then still */
+@keyframes stamp-in{
+  0%  { opacity:0; transform:translateX(-50%) scale(1.9) rotate(calc(var(--tilt) - 12deg)); }
+  35% { opacity:0; }
+  48% { opacity:1; transform:translateX(-50%) scale(.94) rotate(var(--tilt)); }
+  70% { transform:translateX(-50%) scale(1.04) rotate(var(--tilt)); }
+  100%{ opacity:1; transform:translateX(-50%) scale(1)   rotate(var(--tilt)); }
+}
+
 /* Resting spots only. The fly-in itself lives in app.js (section 3), because
    "stop at the centre of the screen" has to be measured at runtime — it is a
    different distance on every screen size. Order: BBQ plate first, then pizza. */
@@ -698,7 +726,9 @@ body.intro-lock{ overflow:hidden; }
   .header__tel{ display:none; }
 
   .hero__grid{ grid-template-columns:1fr; text-align:left; gap:10px; padding:44px 0 30px; }
-  .hero__stage{ min-height:clamp(270px,64vw,400px); order:2; }
+  .hero__right{ order:2; }
+  .hero__stage{ min-height:clamp(270px,64vw,400px); }
+  .hero__stamps{ height:clamp(84px,24vw,100px); }
   .hero__food--bbq{ width:clamp(165px,42vw,275px); left:-1%; top:0; }
   .hero__food--pizza{ width:clamp(190px,48vw,315px); right:-3%; bottom:6%; }
   .grid--3,.grid--2,.split,.visit{ grid-template-columns:1fr; }

@@ -139,3 +139,7 @@ contact form wiring. Account note: repo lives under `angel062388`.
 hero dishes were pushed without a rendered look (the pane could not draw) and did not
 suit the hero. Reverted in full. Lesson: no new visual element goes live unseen; if the
 pane cannot render, ask the client to preview locally first.
+
+**Stamps v2 (client asked again, with a reference):** small classic round stamps,
+~110 px, one under each dish, land-triggered. Rendered look checked in the pane
+before pushing this time.

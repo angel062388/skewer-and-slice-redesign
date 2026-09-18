@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
-<noscript><style>.hero__food{opacity:1}.hero h1 em{color:var(--peach)}.hero h1 .u{text-decoration-color:var(--peach)}</style></noscript>
+<noscript><style>.hero__food{opacity:1}.hero h1 em{color:var(--peach)}.hero h1 .u{text-decoration-color:var(--peach)}.stamp{opacity:1;transform:translateX(-50%) rotate(var(--tilt))}</style></noscript>
 </head>
 <body>
 
@@ -99,9 +99,47 @@
         </div>
       </div>
 
-      <div class="hero__stage" aria-hidden="true">
-        <img class="hero__food hero__food--bbq"   src="assets/bbq-cutout.webp"   alt="" width="820" height="804" fetchpriority="high">
-        <img class="hero__food hero__food--pizza" src="assets/pizza-cutout.webp" alt="" width="940" height="525"  fetchpriority="high">
+      <div class="hero__right">
+        <div class="hero__stage" aria-hidden="true">
+          <img class="hero__food hero__food--bbq"   src="assets/bbq-cutout.webp"   alt="" width="820" height="804" fetchpriority="high">
+          <img class="hero__food hero__food--pizza" src="assets/pizza-cutout.webp" alt="" width="940" height="525"  fetchpriority="high">
+        </div>
+        <div class="hero__stamps" aria-hidden="false">
+          <div class="stamp stamp--1" role="img" aria-label="Built over open flame. No compromise.">
+            <svg class="stamp__svg" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+              <defs>
+                <path id="st1-top" d="M 34,100 A 66,66 0 0 1 166,100"/>
+                <path id="st1-bot" d="M 34,100 A 66,66 0 0 0 166,100"/>
+                <filter id="stamp-grit" x="-4%" y="-4%" width="108%" height="108%">
+                  <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="1" seed="4" result="n"/>
+                  <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" xChannelSelector="R" yChannelSelector="G"/>
+                </filter>
+              </defs>
+              <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="7"/>
+              <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <text font-size="15" letter-spacing="2"><textPath href="#st1-top" startOffset="50%" text-anchor="middle">- BUILT OVER -</textPath></text>
+              <text font-size="15" letter-spacing="2"><textPath href="#st1-bot" startOffset="50%" text-anchor="middle">- NO COMPROMISE -</textPath></text>
+              <text x="100" y="82" text-anchor="middle" font-size="11">&#9733; &#9733; &#9733;</text>
+              <text x="100" y="112" text-anchor="middle" font-size="26" font-weight="700" letter-spacing="1">OPEN FLAME</text>
+              <text x="100" y="134" text-anchor="middle" font-size="11">&#9733; &#9733; &#9733;</text>
+            </svg>
+          </div>
+          <div class="stamp stamp--2" role="img" aria-label="Served with honor. Forged in fire.">
+            <svg class="stamp__svg" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+              <defs>
+                <path id="st2-top" d="M 34,100 A 66,66 0 0 1 166,100"/>
+                <path id="st2-bot" d="M 34,100 A 66,66 0 0 0 166,100"/>
+              </defs>
+              <circle cx="100" cy="100" r="94" fill="none" stroke="currentColor" stroke-width="7"/>
+              <circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" stroke-width="2.5"/>
+              <text font-size="15" letter-spacing="2"><textPath href="#st2-top" startOffset="50%" text-anchor="middle">- SERVED WITH -</textPath></text>
+              <text font-size="15" letter-spacing="2"><textPath href="#st2-bot" startOffset="50%" text-anchor="middle">- FORGED IN FIRE -</textPath></text>
+              <text x="100" y="82" text-anchor="middle" font-size="11">&#9733; &#9733; &#9733;</text>
+              <text x="100" y="112" text-anchor="middle" font-size="34" font-weight="700" letter-spacing="1">HONOR</text>
+              <text x="100" y="134" text-anchor="middle" font-size="11">&#9733; &#9733; &#9733;</text>
+            </svg>
+          </div>
+        </div>
       </div>
     </div>
   </section>
