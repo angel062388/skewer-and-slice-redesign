@@ -41,7 +41,7 @@
   --shadow-sm: 0 8px 24px rgba(0,0,0,.30);
 
   --wrap: 1200px;
-  --header-h: 76px;
+  --header-h: 88px;
 
   --font-display: "Oswald","Arial Narrow",Impact,system-ui,sans-serif;
   --font-body:    "Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
@@ -162,6 +162,21 @@ p{ margin:0 0 1rem; }
 }
 .embers__scrim--even{ background:linear-gradient(180deg, rgba(10,6,5,.80), rgba(10,6,5,.92)); }
 
+/* Real fire footage behind the order band — the restaurant's own clip.
+   Sits between the ember layers and the scrim, fades in once playing. */
+.firevideo{
+  position:absolute; inset:0; overflow:hidden; pointer-events:none;
+  opacity:0; transition:opacity 1.4s ease;
+}
+.firevideo.is-live{ opacity:1; }
+.firevideo iframe{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  border:0; display:block;
+}
+/* lighter scrim on the band so the flames read through, text stays legible */
+.band .embers__scrim{ background:linear-gradient(180deg, rgba(10,6,5,.56), rgba(10,6,5,.76)); }
+.band h2, .band p, .band .eyebrow{ text-shadow:0 2px 18px rgba(0,0,0,.55); }
+
 @keyframes ember-drift{
   from{ transform:scale(1.06) translate3d(-1.2%,.8%,0); }
   to  { transform:scale(1.14) translate3d(1.2%,-1.2%,0); }
@@ -251,12 +266,12 @@ body.intro-lock{ overflow:hidden; }
   height:var(--header-h);
 }
 .header__logo{ display:flex; align-items:center; gap:12px; flex:0 0 auto; }
-.header__logo img{ height:52px; width:auto; }
+.header__logo img{ height:66px; width:auto; }
 .header__logo span{
-  font-family:var(--font-display); font-size:19px; letter-spacing:.06em;
+  font-family:var(--font-display); font-size:23px; letter-spacing:.06em;
   text-transform:uppercase; line-height:1.05;
 }
-.header__logo small{ display:block; font-size:11px; letter-spacing:.24em; color:var(--peach); }
+.header__logo small{ display:block; font-size:12.5px; letter-spacing:.24em; color:var(--peach); }
 
 .nav{ display:flex; gap:6px; margin-left:auto; }
 .nav a{
@@ -287,7 +302,7 @@ body.intro-lock{ overflow:hidden; }
 .hero{ position:relative; overflow:hidden; isolation:isolate; }
 .hero__grid{
   position:relative; z-index:2;
-  display:grid; grid-template-columns:1.04fr .96fr; align-items:center; gap:30px;
+  display:grid; grid-template-columns:1fr 1.08fr; align-items:center; gap:30px;
   min-height:min(82vh,700px); padding:52px 0;
 }
 .hero__eyebrow{
@@ -302,7 +317,21 @@ body.intro-lock{ overflow:hidden; }
   margin:0 0 20px;
   text-shadow:0 6px 34px rgba(0,0,0,.6);
 }
-.hero h1 em{ font-style:normal; color:var(--peach); display:block; }
+/* "Wood-Fired Pizza" starts white and warms to orange; "Open-Flame Kabob"
+   gets an orange underline that fades in. Both switch on with .is-on, which
+   app.js adds when the dishes start flying (i.e. after the intro leaves). */
+.hero h1 em{ font-style:normal; display:block; color:var(--cream); }
+.hero h1 .u{
+  text-decoration:underline;
+  text-decoration-thickness:.07em;
+  text-underline-offset:.13em;
+  text-decoration-skip-ink:none;
+  text-decoration-color:transparent;
+}
+.hero.is-on h1 .u{ animation:underline-in .8s ease .7s forwards; }
+.hero.is-on h1 em{ animation:warm-up 1.3s ease 1.2s forwards; }
+@keyframes underline-in{ to{ text-decoration-color:var(--peach); } }
+@keyframes warm-up{ from{ color:var(--cream); } to{ color:var(--peach); } }
 .hero__lede{
   max-width:492px; color:var(--muted); font-size:clamp(16px,1.6vw,19px); margin-bottom:30px;
 }
@@ -316,7 +345,7 @@ body.intro-lock{ overflow:hidden; }
 
 /* the stage the two cutouts fly into */
 .hero__stage{
-  position:relative; min-height:clamp(300px,38vw,470px);
+  position:relative; min-height:clamp(320px,40vw,580px);
   display:grid; place-items:center;
 }
 .hero__food{
@@ -326,42 +355,26 @@ body.intro-lock{ overflow:hidden; }
   will-change:transform,opacity;
   opacity:0;
 }
-/* BBQ arrives FIRST — round plate, upper left of the stage */
+/* Resting spots only. The fly-in itself lives in app.js (section 3), because
+   "stop at the centre of the screen" has to be measured at runtime — it is a
+   different distance on every screen size. Order: BBQ plate first, then pizza. */
 .hero__food--bbq{
-  width:clamp(186px,25vw,330px);
-  left:-2%; top:2%;
+  width:clamp(200px,28vw,430px);
+  left:-5%; top:0;
   z-index:2;
-  animation:
-    bbq-flight 1.55s cubic-bezier(.22,.92,.3,1) .35s forwards,
-    food-float 7s ease-in-out 2.4s infinite;
 }
-/* pizza follows — wider ellipse, lower right, slight overlap */
 .hero__food--pizza{
-  width:clamp(214px,29vw,384px);
-  right:-4%; bottom:8%;
+  width:clamp(230px,32vw,480px);
+  right:-7%; bottom:3%;
   z-index:3;
-  animation:
-    pizza-flight 1.6s cubic-bezier(.22,.92,.3,1) 1.15s forwards,
-    food-float 8.4s ease-in-out 3.3s infinite;
 }
+/* once a dish has landed on the right it drifts gently */
+.hero__food.is-settled{ animation:food-float 7s ease-in-out infinite; }
+.hero__food--pizza.is-settled{ animation-duration:8.4s; animation-delay:.6s; }
 
-@keyframes bbq-flight{
-  0%  { opacity:0; transform:translateX(-46vw) translateY(42px) scale(.40) rotate(-105deg); }
-  18% { opacity:1; }
-  46% { transform:translateX(-20vw) translateY(-30px) scale(1.16) rotate(24deg); }
-  76% { transform:translateX(3vw)  translateY(6px)   scale(.95) rotate(-9deg); }
-  100%{ opacity:1; transform:none; }
-}
-@keyframes pizza-flight{
-  0%  { opacity:0; transform:translateX(-52vw) translateY(26px) scale(.42) rotate(-92deg); }
-  16% { opacity:1; }
-  48% { transform:translateX(-18vw) translateY(-24px) scale(1.14) rotate(20deg); }
-  78% { transform:translateX(2.5vw) translateY(4px)  scale(.96) rotate(-7deg); }
-  100%{ opacity:1; transform:none; }
-}
 @keyframes food-float{
-  0%,100%{ transform:translateY(0) rotate(-2deg); }
-  50%    { transform:translateY(-15px) rotate(3deg); }
+  0%,100%{ transform:translateY(0) rotate(0deg); }
+  50%    { transform:translateY(-15px) rotate(2.5deg); }
 }
 
 /* --------------------------------------------------------------------------
@@ -473,8 +486,19 @@ body.intro-lock{ overflow:hidden; }
   background:var(--peach); color:var(--peach-ink);
   border-color:var(--peach); font-weight:600;
 }
+/* one card per category: three across when "All" is chosen, and a single
+   card stays centred (never stretched) when one category is chosen */
+.dishes{
+  display:grid; gap:26px; justify-content:center;
+  grid-template-columns:repeat(auto-fit, minmax(290px, 372px));
+}
 .dish{ display:flex; }
 .dish[hidden]{ display:none; }
+.card__more{
+  font-family:var(--font-display); font-size:13px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--muted); white-space:nowrap;
+}
+.card__more:hover{ color:var(--peach); }
 .browse__empty{ text-align:center; color:var(--muted); padding:40px 0; }
 
 @media (max-width:640px){
@@ -483,8 +507,15 @@ body.intro-lock{ overflow:hidden; }
   .chip{ padding:10px 17px; font-size:13.5px; }
 }
 
+/* a section that sits on the ember field (same layers as the hero) */
+.section--flame{ overflow:hidden; isolation:isolate; }
+.section--flame > .wrap{ position:relative; z-index:2; }
+
 /* split feature */
 .split{ display:grid; grid-template-columns:repeat(2,1fr); gap:26px; }
+.split__actions{
+  display:flex; gap:13px; justify-content:center; flex-wrap:wrap; margin-top:36px;
+}
 .split__panel{
   position:relative; border-radius:var(--r-xl); overflow:hidden;
   min-height:430px; display:flex; align-items:flex-end;
@@ -667,9 +698,9 @@ body.intro-lock{ overflow:hidden; }
   .header__tel{ display:none; }
 
   .hero__grid{ grid-template-columns:1fr; text-align:left; gap:10px; padding:44px 0 30px; }
-  .hero__stage{ min-height:clamp(250px,58vw,360px); order:2; }
-  .hero__food--bbq{ width:clamp(150px,38vw,250px); left:-1%; top:0; }
-  .hero__food--pizza{ width:clamp(170px,44vw,290px); right:-3%; bottom:6%; }
+  .hero__stage{ min-height:clamp(270px,64vw,400px); order:2; }
+  .hero__food--bbq{ width:clamp(165px,42vw,275px); left:-1%; top:0; }
+  .hero__food--pizza{ width:clamp(190px,48vw,315px); right:-3%; bottom:6%; }
   .grid--3,.grid--2,.split,.visit{ grid-template-columns:1fr; }
   .orderbar{ display:flex; }
   body{ padding-bottom:78px; }
@@ -679,9 +710,9 @@ body.intro-lock{ overflow:hidden; }
    Order Online button never shrinks out of prominence. */
 @media (max-width:760px){
   .header__bar{ gap:12px; }
-  .header__logo img{ height:44px; }
-  .header__logo span{ font-size:16px; }
-  .header__logo small{ font-size:9.5px; letter-spacing:.17em; }
+  .header__logo img{ height:52px; }
+  .header__logo span{ font-size:18px; }
+  .header__logo small{ font-size:10.5px; letter-spacing:.17em; }
   .header__actions .btn{ padding:11px 17px; font-size:13.5px; }
 }
 @media (max-width:480px){

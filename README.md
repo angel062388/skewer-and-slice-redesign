@@ -122,3 +122,28 @@ there is no horizontal scroll at 375px.
    leads nowhere. This is the single biggest conversion problem.
 2. **The Contact page map points to the London Eye**, London, UK — not
    6970 Mesa Ridge Pkwy. Corrected throughout this redesign.
+
+## Added later the same day (2026-09-18)
+
+- **Hero choreography (rebuilt in app.js):** each dish enters from the left, stops at the
+  exact centre of the screen at 1.5x for a beat, then travels to its spot on the right.
+  Strictly one after the other: BBQ plate, then pizza. Driven by the Web Animations API
+  because "the centre" has to be measured per screen. Waits for the intro to leave, so
+  first-time visitors actually see it. Fail-safe: if anything throws, the dishes appear
+  in place.
+- **Headline:** orange underline under "Open-Flame Kabob"; "Wood-Fired Pizza" warms from
+  white to orange. Both trigger with the dishes.
+- **Bigger:** dishes ~22% larger (403 / 461 px at 1440 wide), header logo 66 px.
+- **Menu browser:** one representative card per category, nine under "All", each with
+  Order Online and an "All ..." link into the full menu group. Far shorter page.
+- **"One Kitchen, Two Fires":** ember field behind it, plus Order Online / See Our Menu.
+- **Order band:** the restaurant's own YouTube fire clip (`94UkyRfa4rs`, titled
+  "flame bg"), muted and looping, mounted only when the band is near the viewport,
+  sized to cover. Embers stay underneath as the fallback (reduced motion, blocked
+  embeds, slow connections). Nothing was downloaded; no new licence.
+
+Verified by DOM and animation-API checks (exact centre, sequence, sizes, filters,
+layer order, mobile overflow, console). The video mount is gated on
+IntersectionObserver, which the automation pane does not deliver, so it was proven by
+mounting the same iframe by hand (loads, covers). **Eyeball check:** scroll to the band on
+the live page; the flames should fade in within about two seconds.

@@ -103,3 +103,34 @@ Skewer and Slice/
 
 Run `python scratch/qc.py` after any edit — it checks links, assets and every
 client design rule above. Last run: 11 passed, 0 failures.
+
+---
+
+## Update - later on 2026-09-18
+
+**Pushed:** hero choreography rebuilt (left -> centre at 1.5x -> right, one by one,
+waits for the intro), headline underline + white-to-orange, dishes and logo bigger,
+menu browser cut to one card per category (9 under All), ember field + two buttons on
+the "One Kitchen, Two Fires" section, and the restaurant's own YouTube fire clip behind
+the order band (lazy, muted, looping, embers as fallback).
+
+**Decisions**
+- Real video = the client's YouTube clip `94UkyRfa4rs` ("flame bg"), the same one the
+  live site uses. Cannot be downloaded (YouTube terms, no ffmpeg here), so it is
+  embedded via youtube-nocookie, only when the band is near the viewport.
+- Hero animation moved from CSS keyframes to the Web Animations API: the "stop at the
+  centre" distance differs per screen and must be measured at runtime.
+- Nine unused menu images deleted after the browser was shortened.
+
+**Verifying in the Claude desktop browser pane - lessons (cost real time today)**
+- The pane tab is *hidden* during automation: requestAnimationFrame never fires,
+  IntersectionObserver callbacks never fire, animation timelines freeze, and
+  screenshots can time out or come back black.
+- `scroll-behavior:smooth` overshoots to the page bottom there; set
+  `documentElement.style.scrollBehavior='auto'` before measuring.
+- Verify animations by pausing them and setting `currentTime` to a keyframe, then
+  reading computed transforms / getBoundingClientRect. Chain steps with `finish()`.
+- Anything gated on rAF/IO must be verified by exercising the same code manually.
+
+**Still open (unchanged):** prices, two real reviews, About story, ordering provider,
+contact form wiring. Account note: repo lives under `angel062388`.

@@ -122,6 +122,7 @@
         clicking through from the menu are never made to sit through it.
      ------------------------------------------------------------------ */
   var intro = document.getElementById('intro');
+  var introOpen = false;                 // the hero sequence waits for this
   if (intro) {
     var SEEN = 'sns_intro_seen';
     var seen = false;
@@ -131,15 +132,24 @@
       intro.remove();
       document.body.classList.remove('intro-lock');
     } else {
+      introOpen = true;
       document.body.classList.add('intro-lock');
       var timer = setTimeout(closeIntro, 5500);   // ~5.5s, matches the progress bar
+      var closed = false;
 
       function closeIntro() {
+        if (closed) return;                        // timer, Skip and Esc can all call this
+        closed = true;
         clearTimeout(timer);
         intro.classList.add('is-out');
         document.body.classList.remove('intro-lock');
         try { sessionStorage.setItem(SEEN, '1'); } catch (e) {}
         setTimeout(function () { if (intro && intro.parentNode) intro.remove(); }, 800);
+        // let the hero start as the overlay is fading, not before
+        setTimeout(function () {
+          introOpen = false;
+          document.dispatchEvent(new CustomEvent('sns:intro-done'));
+        }, 450);
       }
 
       var skip = intro.querySelector('.intro__skip');
@@ -159,7 +169,108 @@
   }
 
   /* ------------------------------------------------------------------
-     3. Sticky Order Online bar
+     3. Hero food sequence
+        Each dish enters from the left, grows large at the centre of the
+        hero for a beat, then travels to its resting spot on the right.
+        Strictly one after the other: BBQ plate first, then the pizza.
+        Distances are measured at runtime so "the centre" is the real
+        centre on every screen. Waits for the intro to leave.
+     ------------------------------------------------------------------ */
+  var stage = document.querySelector('.hero__stage');
+  var foods = stage ? [].slice.call(stage.querySelectorAll('.hero__food')) : [];
+
+  // switches on the headline's underline and colour-warm animations
+  var lightHero = function () {
+    var h = stage && stage.closest('.hero');
+    if (h) h.classList.add('is-on');
+  };
+
+  if (foods.length && 'animate' in Element.prototype && !reduced) {
+    var DURATION = 2100;      // one dish, ms
+    var GAP = 150;            // breath between dishes
+    var FIRST_DELAY = 250;
+
+    var flyIn = function (el, delay) {
+      var hero = el.closest('.hero').getBoundingClientRect();
+      var box = el.getBoundingClientRect();              // resting spot, no transform yet
+      var vw = document.documentElement.clientWidth;      // excludes the scrollbar
+      var toCenterX = vw / 2 - (box.left + box.width / 2);
+      var toCenterY = (hero.top + hero.height / 2) - (box.top + box.height / 2);
+      var startX = -(box.left + box.width + 80);          // fully off the left edge
+      var maxZoom = (vw - 40) / box.width;                // never wider than the screen
+      var zoom = Math.min(vw < 700 ? 1.3 : 1.5, maxZoom);
+
+      var at = function (x, y, s, r) {
+        return 'translate(' + x + 'px, ' + y + 'px) scale(' + s + ') rotate(' + r + 'deg)';
+      };
+
+      var anim = el.animate([
+        { transform: at(startX, 30, 0.5, -110), opacity: 0, offset: 0,
+          easing: 'cubic-bezier(.2,.75,.25,1)' },                      // swoop in, slow into centre
+        { opacity: 1, offset: 0.1 },
+        { transform: at(toCenterX, toCenterY, zoom, 0), offset: 0.4,
+          easing: 'ease-in-out' },                                     // arrive big and upright
+        { transform: at(toCenterX, toCenterY - 8, zoom + 0.04, 2), offset: 0.62,
+          easing: 'cubic-bezier(.55,.05,.35,1)' },                     // hold, then travel right
+        { transform: at(0, 0, 1, 0), opacity: 1, offset: 1 }
+      ], { duration: DURATION, delay: delay, fill: 'forwards' });
+
+      var settle = function () {
+        try { anim.commitStyles(); anim.cancel(); }
+        catch (e) { el.style.opacity = '1'; el.style.transform = 'none'; }
+        el.classList.add('is-settled');                  // hand over to the CSS drift
+      };
+      // same promise the chaining uses, so "settled" and "next" always agree
+      if (anim.finished && anim.finished.then) anim.finished.then(settle, function () {});
+      else anim.onfinish = settle;
+      return anim;
+    };
+
+    var showInPlace = function () {
+      foods.forEach(function (el) { el.style.opacity = '1'; el.classList.add('is-settled'); });
+    };
+
+    var runSequence = function () {
+      lightHero();
+      var start = function (i, delay) {
+        if (i >= foods.length) return;
+        var a;
+        try { a = flyIn(foods[i], delay); }
+        catch (e) { showInPlace(); return; }          // never leave the hero empty
+        var went = false;
+        var next = function () { if (went) return; went = true; start(i + 1, GAP); };
+        // "finished" waits until the tab is actually visible, which is what we
+        // want: a page opened in a background tab still plays one-by-one.
+        if (a.finished && a.finished.then) a.finished.then(next, function () {});
+        else setTimeout(next, delay + DURATION);
+      };
+      start(0, FIRST_DELAY);
+    };
+
+    // measure only once layout is stable (web fonts can shift the hero).
+    // A timer rather than requestAnimationFrame: rAF never fires in a hidden
+    // tab, and getBoundingClientRect forces layout on its own anyway.
+    var kick = function () {
+      var fired = false;
+      var go = function () {
+        if (fired) return;
+        fired = true;
+        setTimeout(runSequence, 40);
+      };
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(go);
+      setTimeout(go, 900);
+    };
+
+    if (introOpen) document.addEventListener('sns:intro-done', kick, { once: true });
+    else kick();
+  } else {
+    // no Web Animations support (or reduced motion): show the dishes in place
+    lightHero();
+    foods.forEach(function (el) { el.style.opacity = '1'; el.classList.add('is-settled'); });
+  }
+
+  /* ------------------------------------------------------------------
+     3b. Sticky Order Online bar
         Appears after the hero scrolls away. It sits below the content,
         never over it, and there is no dismiss-me popup anywhere.
      ------------------------------------------------------------------ */
@@ -242,6 +353,57 @@
       });
     });
   }
+
+  /* ------------------------------------------------------------------
+     4d. Real fire behind the order band
+         The restaurant's own YouTube clip (the same one the live site
+         uses), loaded only when the band is near the viewport, muted and
+         looping, sized to cover. The ember field stays underneath as the
+         fallback for reduced motion, slow connections or blocked embeds.
+     ------------------------------------------------------------------ */
+  document.querySelectorAll('.firevideo[data-yt]').forEach(function (host) {
+    if (reduced) return;
+    var id = host.getAttribute('data-yt');
+    var frame = null;
+
+    var size = function () {
+      if (!frame) return;
+      var w = host.clientWidth, h = host.clientHeight;
+      var cover = 1.18;                       // hides YouTube's letterbox and edge chrome
+      var fw, fh;
+      if (w / h > 16 / 9) { fw = w * cover; fh = fw * 9 / 16; }
+      else { fh = h * cover; fw = fh * 16 / 9; }
+      frame.style.width = Math.ceil(fw) + 'px';
+      frame.style.height = Math.ceil(fh) + 'px';
+    };
+
+    var mount = function () {
+      if (frame) return;
+      frame = document.createElement('iframe');
+      frame.title = 'Open flame';
+      frame.setAttribute('aria-hidden', 'true');
+      frame.setAttribute('tabindex', '-1');
+      frame.setAttribute('allow', 'autoplay; encrypted-media');
+      frame.src = 'https://www.youtube-nocookie.com/embed/' + id +
+        '?autoplay=1&mute=1&loop=1&playlist=' + id +
+        '&controls=0&rel=0&playsinline=1&disablekb=1&iv_load_policy=3&modestbranding=1';
+      frame.addEventListener('load', function () {
+        setTimeout(function () { host.classList.add('is-live'); }, 700);
+      });
+      host.appendChild(frame);
+      size();
+      window.addEventListener('resize', debounce(size, 150));
+    };
+
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) { mount(); io.disconnect(); }
+      }, { rootMargin: '500px 0px' });
+      io.observe(host);
+    } else {
+      mount();
+    }
+  });
 
   /* ------------------------------------------------------------------
      5. Scroll reveals
