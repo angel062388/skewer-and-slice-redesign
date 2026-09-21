@@ -158,3 +158,5 @@ reference said Mon-Fri 11-9 / Sat-Sun 12-10 - awaiting confirmation); location b
 redesigned as the skewer card + warm-framed map on home/About/Contact; footer Order
 Online text colour bug fixed (.footer a was overriding .btn-order). Preview server on
 :8787 dies with the app session; restart with `cd mockup && python -m http.server 8787`.
+
+**Decisions 2026-09-21 (client):** hours stay "Daily 11AM - 9PM" (site value) until the client confirms the split weekday/weekend schedule seen in their reference; the skewer location block stays as built.
