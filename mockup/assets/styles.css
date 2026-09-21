@@ -645,6 +645,11 @@ a.fact:hover{ background:rgba(255,177,119,.08); border-color:var(--line); transf
 .band h2{ font-size:clamp(30px,4.4vw,52px); margin-bottom:14px; }
 .band p{ color:var(--muted); max-width:540px; margin:0 auto 28px; }
 .band__actions{ display:flex; gap:13px; justify-content:center; flex-wrap:wrap; }
+/* "Forged" and "Order." warm from white to orange once the band scrolls in */
+.band h2 em{ font-style:normal; color:var(--cream); }
+.band.is-in h2 em{ animation:warm-up 1.2s ease forwards; }
+.band.is-in h2 em:nth-of-type(1){ animation-delay:.5s; }
+.band.is-in h2 em:nth-of-type(2){ animation-delay:1.1s; }
 
 /* --------------------------------------------------------------------------
    Steam — the client's own clip, full-bleed, copy over a dark scrim

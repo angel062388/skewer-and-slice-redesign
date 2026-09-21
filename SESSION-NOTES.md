@@ -167,3 +167,5 @@ pane: **5.0 from 97 reviews**. The two placeholder slots became a rating card an
 leave-a-review card. Google's listing also says "Closes 8 PM" (site: 9 PM) and lists
 drive-through and no-contact delivery; neither confirmed by the client, neither used.
 Google listing CID 11787907055377612347 (maps.google.com/?cid=...) used for the review links; no ChIJ place ID was exposed, so a write-review deep link needs the Places API.
+
+**2026-09-21, later:** client accepted one real review only ("just add one review for now"); the rating and leave-a-review tiles stay beside it. Order band: "Forged" and "Order." warm to orange on reveal; third button Get Directions (ghost) added.
