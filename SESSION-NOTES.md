@@ -173,3 +173,5 @@ Google listing CID 11787907055377612347 (maps.google.com/?cid=...) used for the 
 **Reviews, final for now (2026-09-21):** one real review centred, kabob plate and pizza cutouts floating either side with an ember glow; rating and leave-a-review tiles removed at the client's request (Google 5.0 / 97 kept in notes).
 
 **Decision 2026-09-21 (client):** reviews section stays as built (one centred review, kabob and pizza floating either side).
+
+**2026-09-21:** Order Online button added beneath the FAQ accordion (client request).
