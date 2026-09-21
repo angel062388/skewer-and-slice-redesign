@@ -61,12 +61,15 @@
         <div class="info-card reveal">
           <p class="eyebrow">Get In Touch</p>
           <h2 style="font-size:clamp(26px,3.2vw,36px);margin-bottom:20px">Reach Out</h2>
-          <dl>
-            <div class="info-row"><dt>Phone</dt><dd><a href="tel:+17193686548">(719) 368-6548</a></dd></div>
-            <div class="info-row"><dt>Email</dt><dd><a href="mailto:info@skewerandslice.com">info@skewerandslice.com</a></dd></div>
-            <div class="info-row"><dt>Address</dt><dd>6970 Mesa Ridge Pkwy, Unit #130<br>Fountain, CO 80817</dd></div>
-            <div class="info-row"><dt>Hours</dt><dd>Daily &middot; 11:00AM &ndash; 9:00PM</dd></div>
-          </dl>
+                    <div class="skewer">
+            <ol class="skewer__list">
+              <li class="skewer__item skewer__item--meat"><span class="skewer__label">Address</span><span class="skewer__value">6970 Mesa Ridge Pkwy, Unit #130<br>Fountain, CO 80817</span></li>
+              <li class="skewer__item skewer__item--pepper"><span class="skewer__label">Hours</span><span class="skewer__value">Daily &middot; 11:00AM &ndash; 9:00PM</span></li>
+              <li class="skewer__item skewer__item--meat"><span class="skewer__label">Phone</span><span class="skewer__value"><a href="tel:+17193686548">(719) 368-6548</a></span></li>
+              <li class="skewer__item skewer__item--onion"><span class="skewer__label">Email</span><span class="skewer__value"><a href="mailto:info@skewerandslice.com">info@skewerandslice.com</a></span></li>
+            </ol>
+            <i class="skewer__ring" aria-hidden="true"></i>
+          </div>
           <div class="hero__actions" style="margin-top:26px">
             <a class="btn btn-order" href="order.html">Order Online</a>
             <a class="btn btn-ghost" href="https://maps.google.com/?q=6970+Mesa+Ridge+Pkwy+Unit+130,+Fountain,+CO+80817" target="_blank" rel="noopener">Get Directions</a>
@@ -93,7 +96,10 @@
         </div>
       </div>
 
-      <div class="map reveal" style="margin-top:26px"><iframe title="Map to Skewer &amp; Slice, 6970 Mesa Ridge Parkway, Fountain, Colorado" src="https://maps.google.com/maps?q=6970%20Mesa%20Ridge%20Pkwy%20Unit%20130%2C%20Fountain%2C%20CO%2080817&amp;t=m&amp;z=15&amp;output=embed&amp;iwloc=near" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      <div class="map-fire reveal" style="margin-top:26px">
+          <div class="map-fire__badge"><span class="map-fire__pin" aria-hidden="true"></span>6970 Mesa Ridge Pkwy &middot; Unit #130</div>
+          <iframe title="Map to Skewer &amp; Slice, 6970 Mesa Ridge Parkway, Fountain, Colorado" src="https://maps.google.com/maps?q=6970%20Mesa%20Ridge%20Pkwy%20Unit%20130%2C%20Fountain%2C%20CO%2080817&amp;t=m&amp;z=15&amp;output=embed&amp;iwloc=near" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </div>
   </section>
 </main>

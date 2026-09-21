@@ -149,3 +149,12 @@ with poster, and a 10-question FAQ with FAQPage schema. Temporary local receiver
 (scratch/recv.py) used to save browser-captured frames to disk without routing the
 data through the model; stop it after use. The pane cannot screenshot live video; swap
 the poster in as a background to judge the section.
+
+## 2026-09-21
+
+Stamps now trigger only after both dishes land; steam headline words warm to orange;
+quick-facts strip under the hero (hours flagged: site says Daily 11-9, client's
+reference said Mon-Fri 11-9 / Sat-Sun 12-10 - awaiting confirmation); location block
+redesigned as the skewer card + warm-framed map on home/About/Contact; footer Order
+Online text colour bug fixed (.footer a was overriding .btn-order). Preview server on
+:8787 dies with the app session; restart with `cd mockup && python -m http.server 8787`.

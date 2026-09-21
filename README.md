@@ -165,3 +165,21 @@ the live page; the flames should fade in within about two seconds.
 - **FAQs:** ten questions in a native accordion after the reviews, with FAQPage
   structured data. Every answer is a fact already published on the live site; a
   footer link points to it from every page.
+
+## Added 2026-09-21
+
+- **Stamps wait for both dishes:** nothing stamps until the pizza has landed; then the
+  two come down 320 ms apart.
+- **Steam headline:** "Steaming" and "Table" warm from white to orange when the section
+  scrolls in (0.5 s and 1.1 s after reveal).
+- **Quick-facts strip** right under the hero: Order Ahead, Address, Hours, Call, as
+  rounded tappable tiles with ember line icons. It replaced the small facts line under
+  the hero buttons. Hours shown are the live site's (Daily 11AM-9PM); the client's
+  reference showed Mon-Fri 11-9 / Sat-Sun 12-10, which is not confirmed.
+- **"Find The Fire" location block** (home, About, Contact): the four facts threaded on
+  a kabob skewer (steel rod, meat / pepper / onion chunks as markers) over the ember
+  field, the BBQ plate in the card corner, and the map in a warm frame with a pulsing
+  pin badge.
+- **Footer fix:** the generic footer link colour was washing out the Order Online
+  button's text; it now keeps the dark ink on every page.
+- **No-JavaScript fallback** now shows all scroll-revealed blocks.

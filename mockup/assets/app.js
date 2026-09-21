@@ -185,11 +185,12 @@
     if (h) h.classList.add('is-on');
   };
 
-  // each dish gets a small stamp beneath it the moment it lands
+  // the stamps come down only once BOTH dishes are in place, one after the other
   var stamps = [].slice.call(document.querySelectorAll('.hero__stamps .stamp'));
-  var stampFor = function (el) {
-    var s = stamps[foods.indexOf(el)];
-    if (s) s.classList.add('is-stamped');
+  var stampAll = function () {
+    stamps.forEach(function (s, i) {
+      setTimeout(function () { s.classList.add('is-stamped'); }, i * 320);
+    });
   };
 
   if (foods.length && 'animate' in Element.prototype && !reduced) {
@@ -226,7 +227,7 @@
         try { anim.commitStyles(); anim.cancel(); }
         catch (e) { el.style.opacity = '1'; el.style.transform = 'none'; }
         el.classList.add('is-settled');                  // hand over to the CSS drift
-        stampFor(el);
+        if (foods.every(function (f) { return f.classList.contains('is-settled'); })) stampAll();
       };
       // same promise the chaining uses, so "settled" and "next" always agree
       if (anim.finished && anim.finished.then) anim.finished.then(settle, function () {});

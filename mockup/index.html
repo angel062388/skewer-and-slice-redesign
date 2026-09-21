@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
-<noscript><style>.hero__food{opacity:1}.hero h1 em{color:var(--peach)}.hero h1 .u{text-decoration-color:var(--peach)}.stamp{opacity:1;transform:translateX(-50%) rotate(var(--tilt))}.steam__video{opacity:1}</style></noscript>
+<noscript><style>.hero__food{opacity:1}.hero h1 em{color:var(--peach)}.hero h1 .u{text-decoration-color:var(--peach)}.stamp{opacity:1;transform:translateX(-50%) rotate(var(--tilt))}.steam__video{opacity:1}.reveal{opacity:1;transform:none}.steam h2 em{color:var(--peach)}</style></noscript>
 </head>
 <body>
 
@@ -92,11 +92,7 @@
           <a class="btn btn-order btn-lg" href="order.html">Order Online</a>
           <a class="btn btn-ghost btn-lg" href="menu.html">See Our Menu</a>
         </div>
-        <div class="hero__facts">
-          <span><b>Open Daily</b> 11AM – 9PM</span>
-          <span><b>Pickup</b> on Mesa Ridge Pkwy</span>
-          <span><b>Call</b> (719) 368-6548</span>
-        </div>
+
       </div>
 
       <div class="hero__right">
@@ -146,6 +142,36 @@
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ====================== QUICK FACTS ======================
+       Order, address, hours, phone. Hours are the live site's
+       (Daily 11AM-9PM); the client's reference showed a split
+       weekday/weekend schedule that is not confirmed.
+       ========================================================== -->
+  <section class="facts" aria-label="Order ahead, address, hours and phone">
+    <div class="wrap facts__grid">
+      <a class="fact" href="order.html">
+        <span class="fact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+        <span class="fact__label">Order Ahead</span>
+        <span class="fact__value">Online ordering for pickup</span>
+      </a>
+      <a class="fact" href="https://maps.google.com/?q=6970+Mesa+Ridge+Pkwy+Unit+130,+Fountain,+CO+80817" target="_blank" rel="noopener">
+        <span class="fact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <span class="fact__label">Address</span>
+        <span class="fact__value">6970 Mesa Ridge Pkwy, Unit #130<br>Fountain, CO 80817</span>
+      </a>
+      <div class="fact">
+        <span class="fact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+        <span class="fact__label">Hours</span>
+        <span class="fact__value">Daily 11AM &ndash; 9PM</span>
+      </div>
+      <a class="fact" href="tel:+17193686548">
+        <span class="fact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></span>
+        <span class="fact__label">Call</span>
+        <span class="fact__value">(719) 368-6548</span>
+      </a>
     </div>
   </section>
 
@@ -339,7 +365,7 @@
     <div class="wrap">
       <div class="steam__copy reveal">
         <p class="eyebrow">Fresh Off The Fire</p>
-        <h2>Still Steaming When It Hits Your Table</h2>
+        <h2>Still <em>Steaming</em> When It Hits Your <em>Table</em></h2>
         <p>Kabobs off the flame, pizza out of the oven, made when you order.</p>
         <div class="hero__actions">
           <a class="btn btn-order btn-lg" href="order.html">Order Online</a>
@@ -503,33 +529,43 @@
   ]}
   </script>
 
-  <!-- ====================== VISIT ====================== -->
-  <section class="section section--alt">
+  <!-- ====================== VISIT ======================
+       Themed to what they sell: the four facts are threaded on a
+       kabob skewer, over the ember field, beside a warm-framed map.
+       ==================================================== -->
+  <section class="section section--flame visit-fire" id="visit">
+    <div class="embers">
+      <div class="embers__still"></div>
+      <canvas class="embers__canvas" aria-hidden="true"></canvas>
+      <div class="embers__glow"></div>
+      <div class="embers__scrim embers__scrim--even"></div>
+    </div>
     <div class="wrap">
-      <div class="section__head reveal">
-        <p class="eyebrow">Find Us</p>
-        <h2>Visit The Grill</h2>
+      <div class="section__head center reveal">
+        <p class="eyebrow">Fountain, Colorado</p>
+        <h2>Find The Fire</h2>
+        <p>Pickup and dine-in on Mesa Ridge Parkway. Open every day.</p>
       </div>
-
-      <div class="visit">
-        <div class="info-card reveal">
-          <dl>
-            <div class="info-row"><dt>Address</dt><dd>6970 Mesa Ridge Pkwy, Unit #130<br>Fountain, CO 80817</dd></div>
-            <div class="info-row"><dt>Hours</dt><dd>Daily · 11:00AM – 9:00PM</dd></div>
-            <div class="info-row"><dt>Phone</dt><dd><a href="tel:+17193686548">(719) 368-6548</a></dd></div>
-            <div class="info-row"><dt>Email</dt><dd><a href="mailto:info@skewerandslice.com">info@skewerandslice.com</a></dd></div>
-          </dl>
-          <div class="hero__actions" style="margin-top:26px">
+      <div class="visit-fire__grid">
+        <div class="skewer-card reveal">
+          <img class="skewer-card__dish" src="assets/bbq-cutout.webp" alt="" aria-hidden="true" loading="lazy">
+          <div class="skewer">
+            <ol class="skewer__list">
+              <li class="skewer__item skewer__item--meat"><span class="skewer__label">Address</span><span class="skewer__value">6970 Mesa Ridge Pkwy, Unit #130<br>Fountain, CO 80817</span></li>
+              <li class="skewer__item skewer__item--pepper"><span class="skewer__label">Hours</span><span class="skewer__value">Daily &middot; 11:00AM &ndash; 9:00PM</span></li>
+              <li class="skewer__item skewer__item--meat"><span class="skewer__label">Phone</span><span class="skewer__value"><a href="tel:+17193686548">(719) 368-6548</a></span></li>
+              <li class="skewer__item skewer__item--onion"><span class="skewer__label">Email</span><span class="skewer__value"><a href="mailto:info@skewerandslice.com">info@skewerandslice.com</a></span></li>
+            </ol>
+            <i class="skewer__ring" aria-hidden="true"></i>
+          </div>
+          <div class="hero__actions">
             <a class="btn btn-order" href="order.html">Order Online</a>
             <a class="btn btn-ghost" href="https://maps.google.com/?q=6970+Mesa+Ridge+Pkwy+Unit+130,+Fountain,+CO+80817" target="_blank" rel="noopener">Get Directions</a>
           </div>
         </div>
-
-        <div class="map reveal">
-          <iframe
-            title="Map to Skewer &amp; Slice, 6970 Mesa Ridge Parkway, Fountain, Colorado"
-            src="https://maps.google.com/maps?q=6970%20Mesa%20Ridge%20Pkwy%20Unit%20130%2C%20Fountain%2C%20CO%2080817&t=m&z=15&output=embed&iwloc=near"
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="map-fire reveal">
+          <div class="map-fire__badge"><span class="map-fire__pin" aria-hidden="true"></span>6970 Mesa Ridge Pkwy &middot; Unit #130</div>
+          <iframe title="Map to Skewer &amp; Slice, 6970 Mesa Ridge Parkway, Fountain, Colorado" src="https://maps.google.com/maps?q=6970%20Mesa%20Ridge%20Pkwy%20Unit%20130%2C%20Fountain%2C%20CO%2080817&amp;t=m&amp;z=15&amp;output=embed&amp;iwloc=near" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </div>
