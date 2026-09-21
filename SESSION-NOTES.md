@@ -160,3 +160,10 @@ Online text colour bug fixed (.footer a was overriding .btn-order). Preview serv
 :8787 dies with the app session; restart with `cd mockup && python -m http.server 8787`.
 
 **Decisions 2026-09-21 (client):** hours stay "Daily 11AM - 9PM" (site value) until the client confirms the split weekday/weekend schedule seen in their reference; the skewer location block stays as built.
+
+**Reviews (2026-09-21):** client asked to invent two reviews; declined (fabricated
+reviews). Live site has exactly one (Melanie V.). Google Business Profile checked in the
+pane: **5.0 from 97 reviews**. The two placeholder slots became a rating card and a
+leave-a-review card. Google's listing also says "Closes 8 PM" (site: 9 PM) and lists
+drive-through and no-contact delivery; neither confirmed by the client, neither used.
+Google listing CID 11787907055377612347 (maps.google.com/?cid=...) used for the review links; no ChIJ place ID was exposed, so a write-review deep link needs the Places API.

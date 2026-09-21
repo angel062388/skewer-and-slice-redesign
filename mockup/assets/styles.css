@@ -605,6 +605,14 @@ a.fact:hover{ background:rgba(255,177,119,.08); border-color:var(--line); transf
   font-family:var(--font-display); font-size:14px; letter-spacing:.14em;
   text-transform:uppercase; color:var(--muted-2); margin:0;
 }
+/* the real Google rating, and an invitation to add to it */
+.review__score{ font-family:var(--font-display); font-size:60px; line-height:1; color:var(--cream); }
+.review__link{
+  margin-top:auto; font-family:var(--font-display); font-size:13.5px;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--peach);
+}
+.review__link:hover{ text-decoration:underline; text-underline-offset:4px; }
+.review--cta .btn{ align-self:flex-start; margin-top:auto; }
 
 /* visit / info */
 .visit{ display:grid; grid-template-columns:1fr 1fr; gap:26px; align-items:stretch; }

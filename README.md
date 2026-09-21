@@ -111,7 +111,7 @@ there is no horizontal scroll at 375px.
 | Gap | Detail |
 |---|---|
 | **Prices** | The live site publishes none, so none are shown. |
-| **Reviews** | One real Google review (Melanie V.) is used verbatim. Two slots are marked `data-placeholder` and must be filled with real reviews before launch. |
+| **Reviews** | One real review from the site (Melanie V.) plus the real Google rating (5.0 from 97 reviews, checked 21 Sep 2026) and a leave-a-review card. Nothing invented. The client can supply more reviews to feature. |
 | **About story** | The live site publishes no family history or origin. |
 | **Ordering** | No provider is connected — see below. |
 | **Contact form** | Not wired to an inbox. |
