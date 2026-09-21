@@ -111,7 +111,7 @@ there is no horizontal scroll at 375px.
 | Gap | Detail |
 |---|---|
 | **Prices** | The live site publishes none, so none are shown. |
-| **Reviews** | One real review from the site (Melanie V.) plus the real Google rating (5.0 from 97 reviews, checked 21 Sep 2026) and a leave-a-review card. Nothing invented. The client can supply more reviews to feature. |
+| **Reviews** | One real review from the site (Melanie V.), centred, with the kabob plate and pizza cutouts floating either side (client's call, 21 Sep 2026). Nothing invented. Google rating at that date: 5.0 from 97 reviews, available if wanted back. |
 | **About story** | The live site publishes no family history or origin. |
 | **Ordering** | No provider is connected — see below. |
 | **Contact form** | Not wired to an inbox. |
