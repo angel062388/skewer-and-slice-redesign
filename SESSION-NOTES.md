@@ -175,3 +175,7 @@ Google listing CID 11787907055377612347 (maps.google.com/?cid=...) used for the 
 **Decision 2026-09-21 (client):** reviews section stays as built (one centred review, kabob and pizza floating either side).
 
 **2026-09-21:** Order Online button added beneath the FAQ accordion (client request).
+
+## 2026-09-24
+
+Design won. Closing band replaced with the Version 3 mockup's 'Made To Order' band (our buttons kept). Side images from the mockup: licence unconfirmed. Eyebrow uses 'Forged In Fire' (client's motto), not the mockup's 'Forge in Fire'.

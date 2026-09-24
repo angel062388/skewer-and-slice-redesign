@@ -183,3 +183,17 @@ the live page; the flames should fade in within about two seconds.
 - **Footer fix:** the generic footer link colour was washing out the Order Online
   button's text; it now keeps the dark ink on every page.
 - **No-JavaScript fallback** now shows all scroll-revealed blocks.
+
+## Added 2026-09-24 -- the design won
+
+- **"Made To Order" closing band** rebuilt from the winning "Skewer & Slice Version 3"
+  mockup (claude.ai/artifact/1eJg5fS6LBVRjsxYcruWmp): cheese-pull pizza strip on the
+  left, flame-grilled skewers on the right, eyebrow "Forged In Fire" with flame dashes,
+  slanted two-tone title with a brush texture and an orange streak, our own buttons.
+  The previous ember/YouTube band on the home page is gone.
+- **Wording:** the mockup's eyebrow read "Forge in Fire"; the client's real motto is
+  "Forged in Fire", so that is what ships.
+- **Licence caveat carried over from the mockup:** the two side images
+  (`assets/closing-pizza.webp`, `assets/closing-skewers.webp`) came with that mockup,
+  look AI-generated or stock, are not the restaurant's dishes, and have no known
+  licence. Confirm or replace before launch.

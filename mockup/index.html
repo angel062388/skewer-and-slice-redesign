@@ -559,30 +559,35 @@
     </div>
   </section>
 
-  <!-- ====================== ORDER BAND ====================== -->
-  <section class="section">
-    <div class="wrap">
-      <div class="band reveal">
-        <div class="embers">
-          <div class="embers__still"></div>
-          <canvas class="embers__canvas" aria-hidden="true"></canvas>
-          <div class="embers__glow"></div>
-          <div class="firevideo" data-yt="94UkyRfa4rs" aria-hidden="true"></div>
-          <div class="embers__scrim embers__scrim--even"></div>
-        </div>
-        <div class="band__inner">
-          <p class="eyebrow">Built Over Open Flame. No Compromise.</p>
-          <h2><em>Forged</em> In Fire. Made To <em>Order.</em></h2>
-          <p>
-            Whether you’re stopping in for a quick bite or sitting down for a full meal,
-            every dish is crafted with precision, heat and purpose.
-          </p>
-          <div class="band__actions">
-            <a class="btn btn-order btn-lg" href="order.html">Order Online</a>
-            <a class="btn btn-ghost btn-lg" href="menu.html">See Our Menu</a>
-            <a class="btn btn-ghost btn-lg" href="https://maps.google.com/?q=6970+Mesa+Ridge+Pkwy+Unit+130,+Fountain,+CO+80817" target="_blank" rel="noopener">Get Directions</a>
-          </div>
-        </div>
+  <!-- ====================== MADE TO ORDER ======================
+       Closing band from the winning "Version 3" mockup: cheese-pull
+       pizza left, flame-grilled skewers right, slanted two-tone title.
+       Our own buttons retained. The two side images came with that
+       mockup and have no confirmed licence (see README).
+       ============================================================ -->
+  <section class="section closing-fire" id="made-to-order" aria-labelledby="closing-title">
+    <div class="fire-art" aria-hidden="true">
+      <img class="fire-pizza" src="assets/closing-pizza.webp" alt="" width="356" height="941" loading="lazy" decoding="async">
+      <img class="fire-skewers" src="assets/closing-skewers.webp" alt="" width="459" height="941" loading="lazy" decoding="async">
+    </div>
+    <svg class="fire-defs" width="0" height="0" aria-hidden="true" focusable="false">
+      <filter id="brush-rough" x="-5%" y="-10%" width="110%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves="2" seed="7" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </svg>
+    <div class="wrap reveal">
+      <p class="fire-eyebrow">Forged In Fire</p>
+      <h2 id="closing-title" class="fire-title"><span class="fire-made">Made To</span> <span class="fire-order">Order</span></h2>
+      <svg class="fire-streak" viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <defs><linearGradient id="streak-grad" x1="0" x2="1"><stop offset="0" stop-color="#FFB177" stop-opacity="0"/><stop offset=".25" stop-color="#FFB177"/><stop offset="1" stop-color="#E4541B"/></linearGradient></defs>
+        <path d="M2 18 C 90 10, 220 6, 398 2 L 396 9 C 250 11, 120 16, 30 22 Z" fill="url(#streak-grad)"/>
+      </svg>
+      <p class="fire-copy">Whether you&rsquo;re stopping in for a quick bite or sitting down for a full meal, every dish is crafted with precision, heat and purpose.</p>
+      <div class="band__actions">
+        <a class="btn btn-order btn-lg" href="order.html">Order Online</a>
+        <a class="btn btn-ghost btn-lg" href="menu.html">See Our Menu</a>
+        <a class="btn btn-ghost btn-lg" href="https://maps.google.com/?q=6970+Mesa+Ridge+Pkwy+Unit+130,+Fountain,+CO+80817" target="_blank" rel="noopener">Get Directions</a>
       </div>
     </div>
   </section>
